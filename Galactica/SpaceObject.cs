@@ -9,7 +9,7 @@ namespace Galactica
     internal abstract class SpaceObject
     {
 
-        public int Id { get; set; } 
+        public string Id { get; set; } 
 
         public string Name { get; set; }
         public Positions ObjectPositions { get; set; } = new Positions();

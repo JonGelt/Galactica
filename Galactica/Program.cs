@@ -1,4 +1,5 @@
 ﻿using Galactica;
+using System.Linq;
 
 Star starSun = new Star();
 
@@ -20,7 +21,7 @@ Moon ganymedes = new Moon();
 Moon io = new Moon();
 Moon mimas = new Moon();
 {
-    mercury.Id = 1;
+    mercury.Id = "1B";
     mercury.Name = "Mercury";
     mercury.Type = Planet.PlanetType.Terrestial;
     mercury.Diameter = 4879400;
@@ -32,7 +33,7 @@ Moon mimas = new Moon();
 }
 
 {
-    venus.Id = 2;
+    venus.Id = "2B";
     venus.Name = "Venus";
     venus.Type = Planet.PlanetType.Terrestial;
     venus.Diameter = 12104000;
@@ -44,7 +45,7 @@ Moon mimas = new Moon();
 }
 
 {
-    earth.Id = 3;
+    earth.Id = "3B";
     earth.Name = "Earth";
     earth.Type = Planet.PlanetType.Terrestial;
     earth.Diameter = 12742000;
@@ -56,7 +57,7 @@ Moon mimas = new Moon();
     earth.Moons.Add(luna);
 
     {
-        luna.Id = 1;
+        luna.Id = "1C";
         luna.Name = "Luna";
         luna.Diameter = 215910;
         luna.RevolutionPeriod = 27;
@@ -70,7 +71,7 @@ Moon mimas = new Moon();
 }
 
 {
-    mars.Id = 4;
+    mars.Id = "4B";
     mars.Name = "Mars";
     mars.Type = Planet.PlanetType.Terrestial;
     mars.Diameter = 6779000;
@@ -83,7 +84,7 @@ Moon mimas = new Moon();
     mars.Moons.Add(deimos);
 
     {
-        phobos.Id = 1;
+        phobos.Id = "1D";
         phobos.Name = "Phobos";
         phobos.Diameter = 140020;
         phobos.RevolutionPeriod = 8;
@@ -95,7 +96,7 @@ Moon mimas = new Moon();
     }
 
     {
-        deimos.Id = 2;
+        deimos.Id = "2D";
         deimos.Name = "Deimos";
         deimos.Diameter = 770500;
         deimos.RevolutionPeriod = 45;
@@ -110,7 +111,7 @@ Moon mimas = new Moon();
 
 
 {
-    jupiter.Id = 5;
+    jupiter.Id = "5B";
     jupiter.Name = "Jupiter";
     jupiter.Type = Planet.PlanetType.Gas_Giant;
     jupiter.Diameter = 13982000;
@@ -123,7 +124,7 @@ Moon mimas = new Moon();
     jupiter.Moons.Add(ganymedes);
     jupiter.Moons.Add(io);
     {
-        europa.Id = 1;
+        europa.Id = "1E";
         europa.Name = "Europa";
         europa.Diameter = 569900;
         europa.RevolutionPeriod = 2333;
@@ -135,7 +136,7 @@ Moon mimas = new Moon();
     }
 
     {
-        ganymedes.Id = 2;
+        ganymedes.Id = "2E";
         ganymedes.Name = "Ganymedes";
         ganymedes.Diameter = 377400;
         ganymedes.RevolutionPeriod = 233;
@@ -143,24 +144,23 @@ Moon mimas = new Moon();
         ganymedes.ObjectPositions.X = 46;
         ganymedes.ObjectPositions.Y = 47;
         ganymedes.Orbiting = jupiter;
-        ganymedes.Distance(jupiter);
-
-        {
-            io.Id = 3;
-            io.Name = "Io";
-            io.Diameter = 235477;
-            io.RevolutionPeriod = 323;
-            io.RotationPeriod = 7;
-            io.ObjectPositions.X = 2;
-            io.ObjectPositions.Y = 25;
-            io.Orbiting = jupiter;
-            io.Distance(jupiter);
-        }
-
+        ganymedes.Distance(jupiter);      
+                  
+    }
+    {
+        io.Id = "3E";
+        io.Name = "Io";
+        io.Diameter = 235477;
+        io.RevolutionPeriod = 323;
+        io.RotationPeriod = 7;
+        io.ObjectPositions.X = 2;
+        io.ObjectPositions.Y = 25;
+        io.Orbiting = jupiter;
+        io.Distance(jupiter);
     }
 
     {
-        saturn.Id = 6;
+        saturn.Id = "6B";
         saturn.Name = "Saturn";
         saturn.Type = Planet.PlanetType.Gas_Giant;
         saturn.Diameter = 11646000;
@@ -172,7 +172,7 @@ Moon mimas = new Moon();
         saturn.Moons.Add(titan);
         saturn.Moons.Add(mimas);
         {
-            titan.Id = 1;
+            titan.Id = "1F";
             titan.Name = "Titan";
             titan.Diameter = 215910;
             titan.RevolutionPeriod = 27;
@@ -184,7 +184,7 @@ Moon mimas = new Moon();
         }
 
         {
-            mimas.Id = 2;
+            mimas.Id = "2F";
             mimas.Name = "Mimas";
             mimas.Diameter = 744500;
             mimas.RevolutionPeriod = 34;
@@ -197,7 +197,7 @@ Moon mimas = new Moon();
         }
 
         {
-            uranus.Id = 7;
+            uranus.Id = "7B";
             uranus.Name = "Uranus";
             uranus.Type = Planet.PlanetType.Ice_Giant;
             uranus.Diameter = 31518000;
@@ -211,7 +211,7 @@ Moon mimas = new Moon();
 
         {
 
-            neptune.Id = 8;
+            neptune.Id = "8B";
             neptune.Name = "Neptune";
             neptune.Type = Planet.PlanetType.Ice_Giant;
             neptune.Diameter = 30599000;
@@ -225,7 +225,7 @@ Moon mimas = new Moon();
         }
 
         {
-            starSun.Id = 1;
+            starSun.Id = "1A";
             starSun.Name = "Sun";
             starSun.StarType = Star.Startype.Yellow_Dwarf;
             starSun.Temperature = 1500000000;
@@ -240,18 +240,22 @@ Moon mimas = new Moon();
             starSun.Planets.Add(uranus);
             starSun.Planets.Add(neptune);
 
-            Console.WriteLine($"STERNE SYSTEM\nName: {starSun.Name}\nId: {starSun.Id}\nStar type: {starSun.StarType}\nPosition: {starSun.ObjectPositions} ");
+            Console.WriteLine($"STARS:\nName: {starSun.Name}\nId: {starSun.Id}\nStar type: {starSun.StarType}\nPosition: {starSun.ObjectPositions} ");
+            Console.WriteLine($"\nPlanets Of the {starSun.Name}:");
 
         }
 
         foreach (var planet in starSun.Planets)
         {
-          
+            
             Console.WriteLine($"\nName: {planet.Name}\nId: {planet.Id}\ntype: {planet.Type}\nDiameter: {planet.Diameter}\nRevolution Period: {planet.RevolutionPeriod}\nRotation Period: {planet.RotationPeriod}\nPosition: {planet.ObjectPositions}\nDistance til solen: {planet.Distance(starSun)} KM ");
+            if (planet.Moons.Count > 0)
+            {Console.WriteLine($"\nMoons of {planet.Name}:"); }
+           
             foreach (var moon in planet.Moons)
             {
 
-
+                
                 Console.WriteLine($"\n    Name: {moon.Name}\n    Id: {moon.Id}\n    Moon of: {moon.Orbiting.Name}\n    Diameter: {moon.Diameter}\n    Revolution Period: {moon.RevolutionPeriod}\n    Rotation Period: {moon.RotationPeriod}\n    Position: {moon.ObjectPositions}\n    Distance til solen: {moon.Distance(planet)} KM ");
             }
         }
